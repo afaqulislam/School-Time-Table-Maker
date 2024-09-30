@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timetable Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Lato:wght@400;700&family=Poppins:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Merriweather:wght@400;700&family=Nunito:wght@400;700&family=Playfair+Display:wght@400;700&family=Ubuntu:wght@400;700&family=Fira+Sans:wght@400;700&family=Tajawal:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <h1><span class="big-letter">S</span>chool <span class="big-letter">T</span>imetable <span class="big-letter">M</span>aker</h1>
+    <h4>Built By <span>Afaq Ul Islam</span></h4>
+
+    <form id="timetableForm">
+        <div>
+            <label for="schoolLogo">Upload School Logo:</label>
+            <input type="file" id="schoolLogo" accept="image/*" required />
+        </div>
+
+        <div>
+            <label for="schoolName">School Name:</label>
+            <input
+              type="text"
+              id="schoolName"
+              placeholder="Enter school name"
+              required
+            />
+        </div>
+
+        <div>
+            <label for="className">Class Name:</label>
+            <input
+              type="text"
+              id="className"
+              placeholder="Enter class name"
+              required
+            />
+        </div>
+
+        <div>
+            <label for="fontColor">Select Font Color:</label>
+            <input type="color" id="fontColor" value="#000000" />
+        </div>
+
+        <div>
+            <label for="bgColor">Select Background Color:</label>
+            <input type="color" id="bgColor" value="#ffffff" />
+        </div>
+
+        <div>
+            <label for="tableHeaderColor">Select Table Header Color:</label>
+            <input type="color" id="tableHeaderColor" value="#007bff" />
+        </div>
+
+        <div>
+            <label for="fontFamily">Select Font Style:</label>
+            <select id="fontFamily">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Roboto">Roboto</option>
+                <option value="Open Sans">Open Sans</option>
+                <option value="Lato">Lato</option>
+                <option value="Poppins">Poppins</option>
+                <option value="Montserrat">Montserrat</option>
+                <option value="Raleway">Raleway</option>
+                <option value="Merriweather">Merriweather</option>
+                <option value="Nunito">Nunito</option>
+                <option value="Playfair Display">Playfair Display</option>
+                <option value="Ubuntu">Ubuntu</option>
+                <option value="Fira Sans">Fira Sans</option>
+                <option value="Tajawal">Tajawal</option>
+            </select>
+        </div>
+
+        <div id="scheduleSection">
+            <h2>Schedule Entry</h2>
+            <div id="scheduleContainer"></div>
+        </div>
+
+        <button type="button" id="addScheduleBtn">Add Schedule</button>
+        <button type="submit">Create Timetable</button>
+    </form>
+
+    <div id="timetableOutput"></div>
+
+    <button id="downloadPdf" style="display: none">Download as PDF</button>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+:root {
+    --font-color: #000000;
+    --bg-color: #ffffff;
+    --table-header-color: #007bff;
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* General Body Styles */
+body {
+    font-family: var(--font-family);
+    font-weight: 800;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: var(--font-color);
+}
+
+/* Header Styles */
+h1, h4 {
+    text-align: center;
+    color: var(--font-color);
+}
+
+/* Form Styles */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+/* Input and Label Styles */
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+input[type="text"],
+input[type="time"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="time"]:focus,
+select:focus {
+    border-color: #66afe9;
+    outline: none;
+}
+
+#fontFamily{
+    overflow: auto;
+    max-width: 30%;
+    height: 30%;
+}
+/* Schedule Section Styles */
+#scheduleSection {
+    margin-top: 20px;
+}
+
+.scheduleEntry {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+button {
+    background-color: #ff0000;
+    color: white;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #fd2c2c;
+}
+
+/* Table Styles */
+table {
+    width: 85%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    font-family: var(--font-family);
+    font-size: 20px;
+
+    
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+
+}
+
+th {
+    background-color: var(--table-header-color);
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+span{
+    color: #ff0000;
+    font-size: 25px;
+    
+}
+.big-letter{
+    color: #ff0000;
+    font-size: 70px;
+}
+
+/* Timetable Output Styles */
+#timetableOutput {
+    margin-top: 20px;
+}
+
+/* Download Button Styles */
+#downloadPdf {
+    display: block;
+    margin: 20px auto;
+    background-color: #28a745;
+}
+
+#downloadPdf:hover {
+    background-color: #218838;
+}
