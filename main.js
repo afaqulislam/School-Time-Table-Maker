@@ -92,7 +92,7 @@ function generateTimetable(schoolName, className) {
         });
     }
     // Generate timetable output with logo, school name, and custom styles
-    var timetableOutputHTML = "\n        <div style=\"display: flex; align-items: center; justify-content: center; margin-bottom: -40px;\">\n            <img src=\"".concat(schoolLogoSrc, "\" alt=\"School Logo\" style=\"width: 100px; height: 100px; margin-right: 10px; border-radius: 50%;\">\n            <h2 style=\"font-size:30px; font-family: 'Playfair Display', serif;\">").concat(schoolName, "</h2> <!-- Use Playfair Display for the school name -->\n        </div>\n        <h3 style=\"font-size:20px; text-align: center; font-family: 'Playfair Display', serif;\">Class: <span style=\"color: red; font-size: 20px;\">").concat(className, "</span></h3>\n        <table style=\"width: 80%; margin: 0 auto; font-size: 14px;\"> <!-- Decreased width and font size -->\n            <thead>\n                <tr>\n    ");
+    var timetableOutputHTML = "\n        <div style=\"display: flex; align-items: center; justify-content: center; margin-bottom: -40px;\">\n            <img src=\"".concat(schoolLogoSrc, "\" alt=\"School Logo\" style=\"width: 100px; height: 100px; margin-right: 10px; border-radius: 50%;\">\n            <h2 style=\"font-size:30px; font-family: 'Playfair Display', serif; margin:0px 55px 0px -10px;\">").concat(schoolName, "</h2> <!-- Use Playfair Display for the school name -->\n        </div>\n        <h3 style=\"font-size:20px; text-align: center; font-family: 'Playfair Display', serif;\">Class: <span style=\"color: red; font-size: 20px;\">").concat(className, "</span></h3>\n        <table style=\"width: 80%; margin: 0 auto; font-size: 14px;\"> <!-- Decreased width and font size -->\n            <thead>\n                <tr>\n    ");
     // Conditionally add the Date header
     if (hasDate) {
         timetableOutputHTML += "<th>Date</th>";
@@ -102,7 +102,7 @@ function generateTimetable(schoolName, className) {
         timetableOutputHTML += "\n            <tr>\n        ";
         // Conditionally add the Date cell
         if (schedule.date) {
-            timetableOutputHTML += "<td>".concat(schedule.date, "</td>");
+            timetableOutputHTML += "<td style=" padding:12px;">".concat(schedule.date, "</td>");
         }
         timetableOutputHTML += "\n                <td>".concat(schedule.day, "</td>\n                <td>").concat(schedule.teacher, "</td>\n                <td>").concat(schedule.subject, "</td>\n                <td>").concat(schedule.startTime, "</td>\n                <td>").concat(schedule.endTime, "</td>\n            </tr>\n        ");
     });
