@@ -46,7 +46,7 @@ function createScheduleFields(index: number): void {
 
     scheduleDiv.innerHTML = `
         <label for="date-${index}">Date:</label>
-        <input type="date" id="date-${index}">
+        <input type="date" id="date-${index}" >
 
         <label for="teacherName-${index}">Teacher:</label>
         <input type="text" id="teacherName-${index}" placeholder="Enter teacher name" required>
@@ -163,8 +163,8 @@ function generateTimetable(schoolName: string, className: string) {
     // Generate timetable output with logo, school name, and custom styles
     let timetableOutputHTML = `
         <div style="display: flex; align-items: center; justify-content: center; margin-bottom: -40px;">
-            <img src="${schoolLogoSrc}" alt="School Logo" style="width: 100px; height: 100px; margin-right: 10px; border-radius: 50%;">
-            <h2 style="font-size:30px; font-family: 'Playfair Display', serif;">${schoolName}</h2> <!-- Use Playfair Display for the school name -->
+            <img src="${schoolLogoSrc}" alt="School Logo" style="width: 100px; height: 100px; margin-right: 5px; ">
+            <h2 style="font-size:30px; font-family: 'Playfair Display', serif;  margin: 0 55px 0px -10px;">${schoolName}</h2> <!-- Use Playfair Display for the school name -->
         </div>
         <h3 style="font-size:20px; text-align: center; font-family: 'Playfair Display', serif;">Class: <span style="color: red; font-size: 20px;">${className}</span></h3>
         <table style="width: 80%; margin: 0 auto; font-size: 14px;"> <!-- Decreased width and font size -->
@@ -195,7 +195,7 @@ function generateTimetable(schoolName: string, className: string) {
 
         // Conditionally add the Date cell
         if (schedule.date) {
-            timetableOutputHTML += `<td>${schedule.date}</td>`;
+            timetableOutputHTML += `<td style="padding: 12px;">${schedule.date}</td>`;
         }
 
         timetableOutputHTML += `
