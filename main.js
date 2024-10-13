@@ -42,12 +42,13 @@ timetableForm.onsubmit = function (e) {
     e.preventDefault();
     var schoolName = document.getElementById('schoolName').value;
     var className = document.getElementById('className').value;
+    var title = document.getElementById('title').value;
     var fontColor = document.getElementById('fontColor').value;
     var bgColor = document.getElementById('bgColor').value;
     var tableHeaderColor = document.getElementById('tableHeaderColor').value;
     var fontFamily = document.getElementById('fontFamily').value;
     var schoolLogoInput = document.getElementById('schoolLogo');
-    if (!schoolName || !className || scheduleContainer.children.length === 0 || !((_a = schoolLogoInput.files) === null || _a === void 0 ? void 0 : _a.length)) {
+    if (!schoolName || !className || !title || scheduleContainer.children.length === 0 || !((_a = schoolLogoInput.files) === null || _a === void 0 ? void 0 : _a.length)) {
         alert("Please fill in all fields, add at least one schedule, and upload a logo.");
         return;
     }
@@ -59,12 +60,12 @@ timetableForm.onsubmit = function (e) {
     reader.onload = function (event) {
         schoolLogoSrc = event.target.result; // Set the logo source
         // Generate timetable output after logo is loaded
-        generateTimetable(schoolName, className);
+        generateTimetable(schoolName, title, className);
     };
     reader.readAsDataURL(file); // Read the logo file as a data URL
 };
 // Function to generate the timetable
-function generateTimetable(schoolName, className) {
+function generateTimetable(schoolName, title, className) {
     scheduleList = []; // Clear previous schedule entries
     var hasDate = false; // Flag to check if any date is provided
     for (var i = 0; i < scheduleContainer.children.length; i++) {
@@ -92,7 +93,7 @@ function generateTimetable(schoolName, className) {
         });
     }
     // Generate timetable output with logo, school name, and custom styles
-    var timetableOutputHTML = "\n        <div style=\"display: flex; align-items: center; justify-content: center; margin-bottom: -40px;\">\n            <img src=\"".concat(schoolLogoSrc, "\" alt=\"School Logo\" style=\"width: 100px; height: 100px; margin-right: 5px; \">\n            <h2 style=\"font-size:30px; font-family: 'Playfair Display', serif;  margin: 0 55px 0px 0;\">").concat(schoolName, "</h2> <!-- Use Playfair Display for the school name -->\n        </div>\n        <h3 style=\"font-size:20px; text-align: center; font-family: 'Playfair Display', serif;\">Class: <span style=\"color: red; font-size: 20px;\">").concat(className, "</span></h3>\n        <table style=\"width: 80%; margin: 0 auto; font-size: 14px;\"> <!-- Decreased width and font size -->\n            <thead>\n                <tr>\n    ");
+    var timetableOutputHTML = "\n        <div style=\"display: flex; align-items: center; justify-content: center; margin-bottom: -40px;\">\n            <img src=\"".concat(schoolLogoSrc, "\" alt=\"School Logo\" style=\"width: 100px; height: 100px; margin-right: 5px; \">\n            <h2 style=\"font-size:30px; font-family: 'Playfair Display', serif;  margin: 0 55px 0px -10px;\">").concat(schoolName, "</h2> <!-- Use Playfair Display for the school name -->\n        </div>\n        <h3 style=\"font-size:20px; text-align: center; font-family: 'Playfair Display', serif;\"> <span style=\"color: red; font-size: 20px;\">").concat(title, "</span></h3>\n        <h3 style=\"font-size:20px; text-align: center; font-family: 'Playfair Display', serif;\">Class: <span style=\"color: red; font-size: 20px;\">").concat(className, "</span></h3>\n        <table style=\"width: 80%; margin: 0 auto; font-size: 14px;\"> <!-- Decreased width and font size -->\n            <thead>\n                <tr>\n    ");
     // Conditionally add the Date header
     if (hasDate) {
         timetableOutputHTML += "<th>Date</th>";

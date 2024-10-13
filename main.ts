@@ -101,13 +101,14 @@ timetableForm.onsubmit = function (e) {
 
     const schoolName = (document.getElementById('schoolName') as HTMLInputElement).value;
     const className = (document.getElementById('className') as HTMLInputElement).value;
+    const title = (document.getElementById('title') as HTMLInputElement).value;
     const fontColor = (document.getElementById('fontColor') as HTMLInputElement).value;
     const bgColor = (document.getElementById('bgColor') as HTMLInputElement).value;
     const tableHeaderColor = (document.getElementById('tableHeaderColor') as HTMLInputElement).value;
     const fontFamily = (document.getElementById('fontFamily') as HTMLSelectElement).value;
     const schoolLogoInput = document.getElementById('schoolLogo') as HTMLInputElement;
 
-    if (!schoolName || !className || scheduleContainer.children.length === 0 || !schoolLogoInput.files?.length) {
+    if (!schoolName || !className || !title || scheduleContainer.children.length === 0 || !schoolLogoInput.files?.length) {
         alert("Please fill in all fields, add at least one schedule, and upload a logo.");
         return;
     }
@@ -122,13 +123,13 @@ timetableForm.onsubmit = function (e) {
         schoolLogoSrc = event.target.result as string; // Set the logo source
 
         // Generate timetable output after logo is loaded
-        generateTimetable(schoolName, className);
+        generateTimetable(schoolName, title, className);
     };
     reader.readAsDataURL(file); // Read the logo file as a data URL
 };
 
 // Function to generate the timetable
-function generateTimetable(schoolName: string, className: string) {
+function generateTimetable(schoolName: string, title: string, className: string) {
     scheduleList = []; // Clear previous schedule entries
     let hasDate = false; // Flag to check if any date is provided
 
@@ -166,6 +167,7 @@ function generateTimetable(schoolName: string, className: string) {
             <img src="${schoolLogoSrc}" alt="School Logo" style="width: 100px; height: 100px; margin-right: 5px; ">
             <h2 style="font-size:30px; font-family: 'Playfair Display', serif;  margin: 0 55px 0px -10px;">${schoolName}</h2> <!-- Use Playfair Display for the school name -->
         </div>
+        <h3 style="font-size:20px; text-align: center; font-family: 'Playfair Display', serif;"> <span style="color: red; font-size: 20px;">${title}</span></h3>
         <h3 style="font-size:20px; text-align: center; font-family: 'Playfair Display', serif;">Class: <span style="color: red; font-size: 20px;">${className}</span></h3>
         <table style="width: 80%; margin: 0 auto; font-size: 14px;"> <!-- Decreased width and font size -->
             <thead>
