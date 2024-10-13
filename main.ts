@@ -165,7 +165,7 @@ function generateTimetable(schoolName: string, title: string, className: string)
     let timetableOutputHTML = `
         <div style="display: flex; align-items: center; justify-content: center; margin-bottom: -40px;">
             <img src="${schoolLogoSrc}" alt="School Logo" style="width: 100px; height: 100px; margin-right: 5px; ">
-            <h2 style="font-size:30px; font-family: 'Playfair Display', serif;  margin: 0 55px 0px -10px;">${schoolName}</h2> <!-- Use Playfair Display for the school name -->
+            <h2 style="font-size:30px; font-family: 'Playfair Display', serif;  margin: 0 55px 0px 10px;">${schoolName}</h2> <!-- Use Playfair Display for the school name -->
         </div>
         <h3 style="font-size:20px; text-align: center; font-family: 'Playfair Display', serif;"> <span style="color: red; font-size: 20px;">${title}</span></h3>
         <h3 style="font-size:20px; text-align: center; font-family: 'Playfair Display', serif;">Class: <span style="color: red; font-size: 20px;">${className}</span></h3>
